@@ -5,8 +5,10 @@
   "repository": "git@github.com:wusuopu/solana-rust-study.git",
   "author": "wusuopu <admin@longchangjin.cn>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
     "dotenv": "^17.2.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

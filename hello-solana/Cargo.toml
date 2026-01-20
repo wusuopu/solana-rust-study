@@ -1,0 +1,13 @@
+[package]
+name = "hello-solana"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+five8 = "1.0.0"
+five8_const = "1.0.0"
+pinocchio = "0.10.1"
+solana-program-log = { version = "1.1.0", features = ["macro"] }
