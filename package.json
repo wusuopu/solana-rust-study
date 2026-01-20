@@ -1,0 +1,14 @@
+{
+  "name": "solana-rust-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wusuopu/solana-rust-study.git",
+  "author": "wusuopu <admin@longchangjin.cn>",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "dotenv": "^17.2.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
