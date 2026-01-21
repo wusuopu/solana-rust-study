@@ -1,8 +1,12 @@
-pub struct User<'a> {
-    pub name: &'a [u8],
+use borsh::{BorshDeserialize, BorshSerialize};
+
+#[derive(BorshSerialize, BorshDeserialize, Debug)]
+pub struct User {
+    pub name: [u8; 16],
+    pub age: u32,
 }
 
-impl<'a> User<'a> {
+impl User {
     pub const SEED_PREFIX: &'static str = "USER";
-    pub const LEN: usize = 16;
+    pub const LEN: usize = 20;
 }

@@ -1,4 +1,5 @@
 use crate::state::user::User;
+use borsh::{BorshDeserialize, BorshSerialize};
 use pinocchio::{
     pubkey::{self, Pubkey},
     account_info::AccountInfo,
@@ -15,6 +16,8 @@ pub fn create_user(
     accounts: &[AccountInfo],
     data: &[u8],
 ) -> ProgramResult {
+    // _program_account: 合约执行 CreateAccount 需要用到该账户
+    // _sysvar_rent_account: 查询 minimum_balance 需要用户该账户
     let [payer, new_account, _program_account, _sysvar_rent_account] = accounts else {
         return Err(ProgramError::NotEnoughAccountKeys);
     };
@@ -60,7 +63,18 @@ pub fn create_user(
 
     let mut address_info_data = new_account.try_borrow_mut_data()?;
     log!("will save data: {}", data.len());
-    address_info_data.copy_from_slice(data);
+    address_info_data.copy_from_slice(data.split_at(4).1);
+
+    let u = User {
+        name: *b"John Doe1122-012",
+        age: 18,
+    };
+    let mut buffer = data;
+    let user = match User::deserialize(&mut buffer) {
+        Ok(user) => user,
+        Err(_) => return Err(ProgramError::InvalidArgument),
+    };
+    log!("user name: {}; age: {}", &user.name, user.age);
 
     Ok(())
 }

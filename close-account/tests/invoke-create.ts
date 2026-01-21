@@ -35,11 +35,12 @@ const [userAccountAddress] = PublicKey.findProgramAddressSync(
 const UserSchema = {
   struct: {
     name: "string",
+    age: "u32",
   },
 }
 
 async function main() {
-  let user = { name: "John Doe1122" }
+  let user = { name: "John Doe1122-012", age: 18 }
   let encodedUser = borsh.serialize(UserSchema, user)
   let data = new Uint8Array(2 + encodedUser.length)
   data.set(new Uint8Array([48, 49]), 0)   // "01"
@@ -52,8 +53,8 @@ async function main() {
     keys: [
       { pubkey: feePayer.publicKey, isSigner: true, isWritable: true },
       { pubkey: userAccountAddress, isSigner: false, isWritable: true },
-      { pubkey: SystemProgram.programId, isSigner: false, isWritable: false},
-      { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false}
+      { pubkey: SystemProgram.programId, isSigner: false, isWritable: false},   // 合约执行 CreateAccount 需要用到该账户
+      { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false}         // 
     ],
     programId: programAccount.publicKey,
     data: Buffer.from(data),
