@@ -9,6 +9,8 @@ crate-type = ["cdylib", "lib"]
 [dependencies]
 borsh = { version = "1.6.0", features = ["derive"], default-features = false }
 borsh-derive = "1.6.0"
+five8 = "1.0.0"
+five8_const = "1.0.0"
 pinocchio = "0.9.2"
 pinocchio-system = "0.4.0"
 solana-program-log = "1.1.0"

@@ -72,3 +72,6 @@ solana program deploy target/deploy/<name>.so
 * hello-solana
   * 一个简单的例子，在日志中输出当前程序的 Program ID
   * 执行 hello-solana/tests/invoke.ts 脚本调用该程序
+* spl-token
+  * 使用 typescript SPL 代币程序
+

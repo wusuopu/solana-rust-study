@@ -40,7 +40,7 @@ const UserSchema = {
 }
 
 async function main() {
-  let user = { name: "John Doe1122-012", age: 18 }
+  let user = { name: "中文名字-123456", age: 18 }
   let encodedUser = borsh.serialize(UserSchema, user)
   let data = new Uint8Array(2 + encodedUser.length)
   data.set(new Uint8Array([48, 49]), 0)   // "01"

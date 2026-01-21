@@ -1,19 +1,15 @@
-#![no_std]
-
 use pinocchio::{
     pubkey::Pubkey,
     account_info::AccountInfo,
     entrypoint,
     ProgramResult,
     program_error::ProgramError,
-    nostd_panic_handler
 };
 
 mod state;
 mod instructions;
 
 entrypoint!(process_instruction);
-nostd_panic_handler!();
 
 pub const CREATE_DISCRIMINATOR: &[u8] = b"01";
 pub const CLOSE_DISCRIMINATOR: &[u8] = b"02";

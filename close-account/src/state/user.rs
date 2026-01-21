@@ -2,7 +2,7 @@ use borsh::{BorshDeserialize, BorshSerialize};
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 pub struct User {
-    pub name: [u8; 16],
+    pub name: String,
     pub age: u32,
 }
 
