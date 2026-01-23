@@ -72,6 +72,13 @@ solana program deploy target/deploy/<name>.so
 * hello-solana
   * 一个简单的例子，在日志中输出当前程序的 Program ID
   * 执行 hello-solana/tests/invoke.ts 脚本调用该程序
+* close-account
+  * 创建/关闭一个 PDA 账户
+  * 执行 close-account/tests/{invoke-create.ts, invoke-close.ts} 脚本调用该程序
 * spl-token
   * 使用 typescript SPL 代币程序
+* anchor_vault
+  * 使用 anchor 框架开发的一个 vault 程序
+  * 进行 anchor_vault 目录执行 `anchor test --skip-local-validator` 运行测试用例
+
 
